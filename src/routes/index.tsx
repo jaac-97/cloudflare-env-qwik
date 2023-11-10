@@ -1,4 +1,4 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead, server$ } from "@builder.io/qwik-city";
 
 import Counter from "~/components/starter/counter/counter";
