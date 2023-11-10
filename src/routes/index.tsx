@@ -1,12 +1,27 @@
-import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { component$, useSignal } from "@builder.io/qwik";
+import { routeLoader$, type DocumentHead, server$ } from "@builder.io/qwik-city";
 
 import Counter from "~/components/starter/counter/counter";
 import Hero from "~/components/starter/hero/hero";
 import Infobox from "~/components/starter/infobox/infobox";
 import Starter from "~/components/starter/next-steps/next-steps";
+import { type PlatformCloudflarePages } from '@builder.io/qwik-city/middleware/cloudflare-pages';
+
+
+
+export const useEnvironmentVars = routeLoader$( async ({ platform }) => {
+  const secret = platform.env? platform.env['SECRET_KEY'] : 'no secret key';
+  return secret;
+})
+
+export const useEnvServer = server$(() => {
+
+})
 
 export default component$(() => {
+
+  const env: any = useEnvironmentVars();
+
   return (
     <>
       <Hero />
@@ -18,7 +33,7 @@ export default component$(() => {
       <div class="container container-center container-spacing-xl">
         <h3>
           You can <span class="highlight">count</span>
-          <br /> on me
+          <br /> on me // {env.value}
         </h3>
         <Counter />
       </div>
