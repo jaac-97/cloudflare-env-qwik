@@ -5,7 +5,6 @@ import Counter from "~/components/starter/counter/counter";
 import Hero from "~/components/starter/hero/hero";
 import Infobox from "~/components/starter/infobox/infobox";
 import Starter from "~/components/starter/next-steps/next-steps";
-import { type PlatformCloudflarePages } from '@builder.io/qwik-city/middleware/cloudflare-pages';
 
 
 
